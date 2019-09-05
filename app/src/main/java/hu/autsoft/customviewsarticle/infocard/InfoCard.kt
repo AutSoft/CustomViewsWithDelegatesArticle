@@ -27,11 +27,32 @@ class InfoCard : FrameLayout {
     }
 
     constructor(context: Context) : super(context)
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
+
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+        initView(attrs)
+    }
+
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+        initView(attrs)
+    }
 
     init {
         inflate(context, R.layout.view_info_card, this)
+    }
+
+    private fun initView(attrs: AttributeSet?) {
+        attrs ?: return
+
+        val attributeValues = context.obtainStyledAttributes(attrs, R.styleable.InfoCard)
+        with(attributeValues) {
+            try {
+                icon = getDrawable(R.styleable.InfoCard_ic_icon)
+                title = getString(R.styleable.InfoCard_ic_title)
+                content = getString(R.styleable.InfoCard_ic_content)
+            } finally {
+                recycle()
+            }
+        }
     }
 
 }
