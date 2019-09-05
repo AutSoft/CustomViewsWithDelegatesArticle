@@ -11,17 +11,17 @@ import kotlin.properties.Delegates
 
 class InfoCard : FrameLayout {
 
-    var title: String? by Delegates.observable<String?>(null) { _, _, newTitle ->
+    var title: String? by Delegates.observable(null) { _, _, newTitle ->
         infoCardTitleText.text = newTitle
         infoCardTitleText.isVisible = !newTitle.isNullOrEmpty()
     }
 
-    var content: String? by Delegates.observable<String?>(null) { _, _, newContent ->
+    var content: String? by Delegates.observable(null) { _, _, newContent ->
         infoCardContentText.text = newContent
         infoCardContentText.isVisible = !newContent.isNullOrEmpty()
     }
 
-    var icon: Drawable? by Delegates.observable<Drawable?>(null) { _, _, newIcon ->
+    var icon: Drawable? by Delegates.observable(null) { _, _, newIcon ->
         infoCardImage.setImageDrawable(newIcon)
         infoCardImage.isVisible = newIcon != null
     }
