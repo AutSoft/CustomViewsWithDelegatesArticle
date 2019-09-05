@@ -9,11 +9,26 @@
     tools:context=".MainActivity">
 
     <hu.autsoft.customviewsarticle.infocard.InfoCard
-        android:id="@+id/infoCard"
+        android:id="@+id/infoCard0"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        app:ic_content="Purchase completed. We'll prepare your package soon."
-        app:ic_icon="@drawable/ic_ok"
-        app:ic_title="Success" />
+        app:ic_content="Lorem ipsum dolor sit amet..."
+        app:ic_icon="@mipmap/ic_launcher"
+        app:ic_title="Title" />
+
+    <hu.autsoft.customviewsarticle.infocard.InfoCard
+        android:id="@+id/infoCard1"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content" />
+
+    <hu.autsoft.customviewsarticle.infocard.InfoCard
+        android:id="@+id/infoCard2"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content" />
+
+    <hu.autsoft.customviewsarticle.infocard.InfoCard
+        android:id="@+id/infoCard3"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>
