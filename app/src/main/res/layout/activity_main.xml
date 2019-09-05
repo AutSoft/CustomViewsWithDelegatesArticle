@@ -7,4 +7,9 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <hu.autsoft.customviewsarticle.infocard.InfoCard
+        android:id="@+id/infoCard"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content" />
+
 </LinearLayout>
