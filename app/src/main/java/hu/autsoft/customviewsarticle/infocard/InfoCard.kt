@@ -4,27 +4,20 @@ import android.content.Context
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.widget.FrameLayout
-import androidx.core.view.isVisible
 import hu.autsoft.customviewsarticle.R
+import hu.autsoft.customviewsarticle.delegates.ImageViewDelegate
+import hu.autsoft.customviewsarticle.delegates.TextViewDelegate
 import kotlinx.android.synthetic.main.view_info_card.view.*
-import kotlin.properties.Delegates
 
 class InfoCard : FrameLayout {
 
-    var title: String? by Delegates.observable(null) { _, _, newTitle ->
-        infoCardTitleText.text = newTitle
-        infoCardTitleText.isVisible = !newTitle.isNullOrEmpty()
+    init {
+        inflate(context, R.layout.view_info_card, this)
     }
 
-    var content: String? by Delegates.observable(null) { _, _, newContent ->
-        infoCardContentText.text = newContent
-        infoCardContentText.isVisible = !newContent.isNullOrEmpty()
-    }
-
-    var icon: Drawable? by Delegates.observable(null) { _, _, newIcon ->
-        infoCardImage.setImageDrawable(newIcon)
-        infoCardImage.isVisible = newIcon != null
-    }
+    var title: String? by TextViewDelegate(infoCardTitleText)
+    var content: String? by TextViewDelegate(infoCardContentText)
+    var icon: Drawable? by ImageViewDelegate(infoCardImage)
 
     constructor(context: Context) : super(context)
 
@@ -34,10 +27,6 @@ class InfoCard : FrameLayout {
 
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
         initView(attrs)
-    }
-
-    init {
-        inflate(context, R.layout.view_info_card, this)
     }
 
     private fun initView(attrs: AttributeSet?) {
